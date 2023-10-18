@@ -11,11 +11,18 @@ import {
   ShoppingCartIcon,
 } from "lucide-react";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 import { Avatar, AvatarImage } from "./avatar";
 import { Button } from "./button";
 import { Card } from "./card";
 import { Separator } from "./separator";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "./sheet";
 
 const Header = () => {
   const { status, data } = useSession();
@@ -71,7 +78,7 @@ const Header = () => {
                 className="w-full justify-start gap-2"
               >
                 <LogInIcon size={16} />
-                Fazer login
+                Fazer Login
               </Button>
             )}
 
@@ -82,7 +89,7 @@ const Header = () => {
                 className="w-full justify-start gap-2"
               >
                 <LogOutIcon size={16} />
-                Fazer logout
+                Fazer Logout
               </Button>
             )}
 
@@ -96,17 +103,26 @@ const Header = () => {
               Ofertas
             </Button>
 
-            <Button variant="outline" className="w-full justify-start gap-2">
-              <ListOrderedIcon size={16} />
-              Catálogo
-            </Button>
+            <SheetClose asChild>
+              <Link href="/catalog">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <ListOrderedIcon size={16} />
+                  Catálogo
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>
 
-      <h1 className="text-lg font-semibold">
-        <span className="text-primary">FSW</span> Store
-      </h1>
+      <Link href="/">
+        <h1 className="text-lg font-semibold">
+          <span className="text-primary">FSW</span> Store
+        </h1>
+      </Link>
 
       <Button size="icon" variant="outline">
         <ShoppingCartIcon />
