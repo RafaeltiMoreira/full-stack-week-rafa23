@@ -15,7 +15,7 @@ const Cart = () => {
         variant="outline"
       >
         <ShoppingCartIcon size={16} />
-        Catálogo
+        Carrinho
       </Badge>
 
       <div className="flex flex-col gap-5">
