@@ -46,7 +46,7 @@ const Cart = () => {
                 />
               ))
         ) : (
-          <p className="text-center font-medium">Carrinho vazio. Ir para as <Link href="#" className="font-bold underline">ofertas!</Link></p>
+          <p className="text-center font-medium">Carrinho vazio. Ir para as <Link href="/deals" className="font-bold underline">ofertas!</Link></p>
         )}
       </div>
         </ScrollArea>
