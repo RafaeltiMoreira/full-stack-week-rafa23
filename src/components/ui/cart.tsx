@@ -10,6 +10,7 @@ import { Button } from "./button";
 import CartItem from "./cart-item";
 import { ScrollArea } from "./scroll-area";
 import { Separator } from "./separator";
+import { SheetClose } from "./sheet";
 
 const Cart = () => {
   const { products, subtotal, total, totalDiscount } = useContext(CartContext);
@@ -45,10 +46,17 @@ const Cart = () => {
                   product={computeProductTotalPrice(product as any) as any}
                 />
               ))
-        ) : (
-          <p className="text-center font-medium">Carrinho vazio. Ir para as <Link href="/deals" className="font-bold underline">ofertas!</Link></p>
-        )}
-      </div>
+            ) : (
+              <p className="text-center font-medium">
+                Carrinho vazio. Ir para as
+                <SheetClose asChild>
+                  <Link href="/deals">
+                    &nbsp; <span className="font-bold underline">ofertas!</span>
+                  </Link>
+                </SheetClose>
+              </p>
+            )}
+          </div>
         </ScrollArea>
       </div>
       {products.length > 0 && (
